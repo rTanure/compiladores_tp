@@ -1,1 +1,25 @@
-MAX_SIZE contador fooBar x1 Abc
+int SOMA;
+
+int calcularSoma (int a, int b) {
+    int resultado;
+    resultado = a + b;
+    return resultado;
+}
+
+int principal() {
+    int x;
+    int y;
+
+    x = 10;
+    y = 20;
+
+    SOMA = calcularSoma (x, y) ;
+
+    if (SOMA > 20) {
+        x = x + 1;
+    }
+
+    while (x < SOMA ) {
+        x = x + 1;
+    }
+}

@@ -4,10 +4,6 @@
 - cmake >= 3.10
 - make
 
-## Build
-1. `cmake -S . -B build`
-2. `cmake --build build`
-
-## Uso
-1. `./build/lexer < inputs/input.txt`
+## Como rodar
+1. `make`
 
