@@ -1,0 +1,82 @@
+int TOTAL_GERAL;
+int LIMITE_MAXIMO;
+float PI_APROX;
+string MENSAGEM_PADRAO;
+
+int somarValores(int a, int b) {
+    int resultado;
+    resultado = a + b;
+    return resultado;
+}
+
+float calcularMedia(float soma_total, int quantidade) {
+    float media;
+    media = soma_total / quantidade;
+    return media;
+}
+
+int verificarPar(int numero) {
+    int resto;
+    resto = numero % 2;
+    if (resto == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int calcularFatorial(int n) {
+    int resultado;
+    int contador;
+    resultado = 1;
+    contador = 2;
+    while (contador <= n) {
+        resultado = resultado * contador;
+        contador = contador + 1;
+    }
+    return resultado;
+}
+
+void exibirMensagem(string texto) {
+    string copia_local;
+    copia_local = texto;
+}
+
+int principal() {
+    int valor_1;
+    int valor_2;
+    int contador_pares;
+    int i;
+    float media_final;
+    string saudacao;
+
+    TOTAL_GERAL = 0;
+    LIMITE_MAXIMO = 100;
+    PI_APROX = 3.14159;
+    MENSAGEM_PADRAO = "Resultado: \"ok\"\n";
+    saudacao = "Ola, mundo!";
+
+    valor_1 = 10;
+    valor_2 = (valor_1 + 5) * 3 - 4 / 2;
+    valor_2 = -valor_2 + 7 % 3;
+    valor_2 = calcularFatorial(5);
+
+    i = 0;
+    contador_pares = 0;
+    while (i < LIMITE_MAXIMO && contador_pares != 10) {
+        if (verificarPar(i) == 1) {
+            contador_pares = contador_pares + 1;
+            TOTAL_GERAL = somarValores(TOTAL_GERAL, i);
+        } else {
+            if (i >= 50 || !(i < 5)) {
+                valor_1 = valor_1 - 1;
+            }
+        }
+        i = i + 1;
+    }
+
+    media_final = calcularMedia(2.5 * 4.0, contador_pares);
+    exibirMensagem(saudacao);
+    saudacao = null;
+    return 0;
+}

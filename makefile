@@ -1,5 +1,5 @@
 MODE   ?= ON
-INPUT  ?= inputs/input.txt
+INPUT  ?= inputs/erros.txt
 
 .PHONY: run build clean
 
