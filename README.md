@@ -1,9 +1,13 @@
-## Como rodar
+## Dependências
+- gcc
+- flex >= 2.6
+- cmake >= 3.10
+- make
 
-### Analisador léxico
+## Build
+1. `cmake -S . -B build`
+2. `cmake --build build`
 
-`flex lexer.l && gcc lex.yy.c -o lexer && ./lexer < inputs/input.txt`
-1. `flex lexer.l `
-2. `gcc lex.yy.c -o lexer`
-3. `./lexer < input.txt`
+## Uso
+1. `./build/lexer < inputs/input.txt`
 
