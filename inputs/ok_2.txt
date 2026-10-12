@@ -1,0 +1,204 @@
+int TAMANHO;
+int LIMITE;
+int CONTADOR_GLOBAL;
+float TAXA_GLOBAL;
+string MENSAGEM_GLOBAL;
+char LETRA_GLOBAL;
+
+int calcularSoma(int primeiro_valor, int segundo_valor) {
+    int resultado;
+    resultado = primeiro_valor + segundo_valor;
+    return resultado;
+}
+
+int calcularProduto(int primeiro_valor, int segundo_valor) {
+    int resultado;
+    resultado = primeiro_valor * segundo_valor;
+    return resultado;
+}
+
+int calcularPotencia(int base_valor, int expoente_valor) {
+    int resultado;
+    int contador;
+    resultado = 1;
+    contador = 0;
+
+    while (contador < expoente_valor) {
+        resultado = resultado * base_valor;
+        contador = contador + 1;
+    }
+
+    return resultado;
+}
+
+int calcularFatorial(int numero_valor) {
+    int resultado;
+    int contador;
+
+    resultado = 1;
+    contador = 1;
+
+    while (contador <= numero_valor) {
+        resultado = resultado * contador;
+        contador = contador + 1;
+    }
+
+    return resultado;
+}
+
+int verificarPar(int numero_valor) {
+    int resto;
+    resto = numero_valor % 2;
+
+    if (resto == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int encontrarMaior(int primeiro_valor, int segundo_valor) {
+    if (primeiro_valor > segundo_valor) {
+        return primeiro_valor;
+    } else {
+        return segundo_valor;
+    }
+}
+
+int calcularSomaArray(int valores[10]) {
+    int indice;
+    int soma;
+    indice = 0;
+    soma = 0;
+
+    while (indice < 10) {
+        soma = soma + valores[indice];
+        indice = indice + 1;
+    }
+
+    return soma;
+}
+
+float calcularMediaArray(int valores[10]) {
+    float media;
+    int soma;
+    soma = calcularSomaArray(valores);
+    media = soma / 10.0;
+    return media;
+}
+
+int contarOcorrencias(int valores[10], int alvo_valor) {
+    int indice;
+    int quantidade;
+    indice = 0;
+    quantidade = 0;
+
+    while (indice < 10) {
+        if (valores[indice] == alvo_valor) {
+            quantidade = quantidade + 1;
+        }
+        indice = indice + 1;
+    }
+
+    return quantidade;
+}
+
+int calcularExpressao(int primeiro_valor, int segundo_valor, int terceiro_valor) {
+    int resultado;
+
+    resultado = primeiro_valor + segundo_valor * terceiro_valor;
+    resultado = resultado - primeiro_valor / 2;
+    resultado = resultado + primeiro_valor % segundo_valor;
+
+    return resultado;
+}
+
+int testarLogica(int primeiro_valor, int segundo_valor) {
+    int resultado;
+
+    resultado = 0;
+
+    if ((primeiro_valor > 0) && (segundo_valor > 0)) {
+        resultado = 1;
+    }
+
+    if ((primeiro_valor == 0) || (segundo_valor == 0)) {
+        resultado = 2;
+    }
+
+    if (!(primeiro_valor < segundo_valor)) {
+        resultado = resultado + 4;
+    }
+
+    return resultado;
+}
+
+int principal() {
+    int valores[10];
+    int indice;
+    int soma;
+    int produto;
+    int potencia;
+    int fatorial;
+    int maior;
+    int ocorrencias;
+    int expressao;
+    int logica;
+    float media;
+
+    TAMANHO = 10;
+    LIMITE = 100;
+    CONTADOR_GLOBAL = 0;
+    TAXA_GLOBAL = 2.5;
+    MENSAGEM_GLOBAL = "Teste completo";
+
+    indice = 0;
+
+    while (indice < TAMANHO) {
+        valores[indice] = indice + 1;
+        indice = indice + 1;
+    }
+
+    soma = calcularSoma(10, 20);
+    produto = calcularProduto(4, 5);
+    potencia = calcularPotencia(2, 8);
+    fatorial = calcularFatorial(5);
+    maior = encontrarMaior(soma, produto);
+    ocorrencias = contarOcorrencias(valores, 5);
+    expressao = calcularExpressao(10, 3, 4);
+    logica = testarLogica(10, 20);
+    media = calcularMediaArray(valores);
+
+    if (verificarPar(soma) == 1) {
+        CONTADOR_GLOBAL = CONTADOR_GLOBAL + 1;
+    } else {
+        CONTADOR_GLOBAL = CONTADOR_GLOBAL + 2;
+    }
+
+    if ((produto > 10) && (potencia > 100)) {
+        CONTADOR_GLOBAL = CONTADOR_GLOBAL + 3;
+    }
+
+    if ((fatorial >= 120) || (maior != 30)) {
+        CONTADOR_GLOBAL = CONTADOR_GLOBAL + 4;
+    }
+
+    if (!(ocorrencias < 1)) {
+        CONTADOR_GLOBAL = CONTADOR_GLOBAL + 5;
+    }
+
+    while (CONTADOR_GLOBAL < LIMITE) {
+        CONTADOR_GLOBAL = CONTADOR_GLOBAL + 10;
+    }
+
+    {
+        int variavel_interna;
+        variavel_interna = calcularSoma(CONTADOR_GLOBAL, soma);
+
+        if (variavel_interna > LIMITE) {
+            CONTADOR_GLOBAL = variavel_interna;
+        }
+    }
+
+    return 0;
+}
