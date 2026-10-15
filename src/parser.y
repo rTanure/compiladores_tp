@@ -10,15 +10,26 @@ void yyerror(const char *s);
 %}
 
 %define parse.error detailed
+%define parse.lac full
 
 /* identificadores */
-%token TK_ID_GLOBAL TK_ID_LOCAL TK_ID_FUNC
+%token TK_ID_GLOBAL 
+%token TK_ID_LOCAL 
+%token TK_ID_FUNC
 
 /* tipos */
-%token TK_TYPE_INT TK_TYPE_FLOAT TK_TYPE_STRING TK_TYPE_VOID TK_TYPE_CHAR
+%token TK_TYPE_INT 
+%token TK_TYPE_FLOAT 
+%token TK_TYPE_STRING 
+%token TK_TYPE_VOID 
+%token TK_TYPE_CHAR
 
 /* literais */
-%token TK_INT TK_FLOAT TK_STRING TK_NULL TK_CHAR
+%token TK_INT 
+%token TK_FLOAT 
+%token TK_STRING 
+%token TK_NULL 
+%token TK_CHAR
 
 /* operadores logicos */
 %token TK_OP_EQ TK_OP_NEQ TK_OP_LT TK_OP_GT TK_OP_GEQ TK_OP_LEQ TK_OP_AND TK_OP_OR TK_OP_NOT
@@ -58,7 +69,7 @@ void yyerror(const char *s);
 /* programa principal */
 
 programa:
-    /* vazio */
+    %empty
     | programa elemento
     ;
 
@@ -111,7 +122,7 @@ declaracao_funcao:
     ;
 
 parametros_opt:
-    /* vazio */
+    %empty
     | lista_parametros
     ;
 
@@ -135,7 +146,7 @@ bloco:
     TK_LBRACE comandos TK_RBRACE
 
 comandos:
-    /* vazio */
+    %empty
     | comandos comando
     ;
 
@@ -187,7 +198,7 @@ chamada_funcao:
     ;
 
 argumentos_opt:
-    /* vazio */
+    %empty
     | lista_argumentos
     ;
 
@@ -232,15 +243,15 @@ expressao:
 void yyerror(const char *s)
 {
     fprintf(stderr,
-            "Erro sintatico na linha %d: %s\n",
-            yylineno, s);
+        "Erro sintatico na linha %d: %s\n",
+        yylineno, s);
 }
 
 extern int yydebug;
 
 int main(void)
 {
-    yydebug = 1;
+    yydebug = 0;
     int resultado = yyparse();
 
     if (resultado == 0 && erros_lexicos == 0) {

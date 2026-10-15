@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(lexer C)
 
-option(LEXER_STANDALONE "Compila o lexer isolado (sem Bison)" ON)
 
 find_package(FLEX REQUIRED)
 find_package(BISON REQUIRED)

@@ -1,4 +1,3 @@
-LEXER_STANDALONE  ?= OFF
 INPUT  ?= inputs/ok_2.txt
 
 TARGET = parser
@@ -9,7 +8,7 @@ run: build
 	./build/${TARGET} < $(INPUT)
 
 build:
-	cmake -S . -B build -DLEXER_STANDALONE=$(LEXER_STANDALONE)
+	cmake -S . -B build
 	cmake --build build
 
 clean:
