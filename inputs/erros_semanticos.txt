@@ -1,0 +1,38 @@
+int SOMA;
+int SOMA;
+
+int calcularSoma(int a, int b) {
+    int a;
+    return a + b;
+}
+
+float calcularMedia(int total) {
+    return total / 2.0;
+}
+
+void exibirValor(int valor) {
+    return valor;
+}
+
+int obterValor() {
+    return;
+}
+
+int principal() {
+    int x;
+    int x;
+    float f;
+
+    y = 10;
+    x = f;
+    x = f + 1;
+    x = 5 % f;
+    x = calcularSoma(1);
+    x = calcularSoma(1, f);
+    x = exibirValor(2);
+    x = naoExiste(1);
+    f = calcularMedia(x);
+    x = calcularMedia(x);
+    if (f) { x = !f; }
+    return x;
+}

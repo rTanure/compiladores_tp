@@ -1,0 +1,18 @@
+int calcularSoma(int a, int b) {
+    int resultado;
+    resultado = a + ;
+    return resultado
+}
+
+int principal() {
+    int x;
+    x = (1 + 2;
+    if x > 1 {
+        x = 2;
+    }
+    while (x < 3) x = x + 1
+    x = 3;
+    x = 4 5;
+}
+
+int SOMA

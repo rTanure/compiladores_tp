@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(lexer C)
-
+project(compilador C)
 
 find_package(FLEX REQUIRED)
 find_package(BISON REQUIRED)
@@ -20,12 +19,14 @@ FLEX_TARGET(
 
 ADD_FLEX_BISON_DEPENDENCY(scanner parser)
 
-add_executable(parser
+add_executable(compilador
     ${BISON_parser_OUTPUTS}
     ${FLEX_scanner_OUTPUTS}
+    src/tabela.c
+    src/quad.c
 )
 
-target_include_directories(parser PRIVATE
+target_include_directories(compilador PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
 )
